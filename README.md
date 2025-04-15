@@ -1,82 +1,116 @@
-evORFinder: Computational Prediction of Small Open Reading Frames (smORFs)
-Overview
-evORFinder is a computational tool designed for the detection of small open reading frames (smORFs) in microbial genomes. Using Evo, a pretrained foundation model, the tool integrates a Sparse Mixture of Experts (MoE) architecture to enhance prediction accuracy by incorporating context-specific features. This project leverages Evo's high-dimensional embeddings to classify coding versus non-coding sequences with greater accuracy than existing models.
 
-Project Title: Computational Prediction of Small Open Reading Frames Using Evo-Based Transfer Learning
-Team Member
-Aram Shajii
+# evORFinder: Computational Prediction of Small Open Reading Frames Using Evo-Based Transfer Learning
 
-GitHub Repository Link
-[Your GitHub Repository Link Here]
+## Overview
 
-Data
-The dataset for training the evORFinder model is a curated collection of short genomic sequences derived from microbial genomes in the human microbiome, augmented with Ribo-seq data. The sequences were labeled as coding (bona-fide smORFs) or non-coding. Each sequence was augmented with 100 base pairs of upstream and downstream flanking context to preserve regulatory information.
+**evORFinder** is a computational pipeline designed to predict small open reading frames (smORFs) in genomic sequences by leveraging Evo, a large foundation model pre-trained on over 80,000 bacterial, archaeal, and bacteriophage genomes. By utilizing Evo's high-dimensional embeddings, evORFinder employs a Sparse Mixture of Experts (MoE) architecture to classify coding and non-coding sequences with high accuracy. The model outperforms traditional approaches like smORFinder in both sensitivity and specificity, making it a valuable tool for discovering previously unannotated genomic regions.
 
-The dataset was preprocessed by removing incomplete sequences, filtering ambiguous nucleotides, and standardizing input lengths. It was then partitioned into training, validation, and test sets (80/10/10 split).
+This repository contains all the code and data necessary to reproduce the key figure from the evORFinder study, showcasing model performance and accuracy convergence over training epochs.
 
-Data Access
-If your data exceeds GitHub’s size limitations, it can be accessed via external links or datasets like NCBI Genome Database.
+## Data
 
-Folder Structure
-bash
-Copy
-/evORFinder
-  ├── /data                  # Dataset and input files
-  ├── /scripts               # Python scripts for data preprocessing, model training, and evaluation
-  ├── /notebooks             # Jupyter notebooks for exploratory data analysis and model demonstration
-  ├── README.md              # This README file
-  ├── requirements.txt       # List of dependencies for the project
-Installation
-To run this code, clone the repository and install the required packages using the following steps:
+The dataset used to train the model contains genomic sequences from bacterial species within the human microbiome, as well as sequences curated from *Mycobacterium tuberculosis* (Mtb) H37Rv for biological validation. Sequences were annotated as either coding (bona-fide smORFs) or non-coding. The data was preprocessed by removing incomplete sequences, filtering ambiguous nucleotides, and standardizing input lengths. A subset of 10,000 entries was used for training, validation, and testing.
 
-Clone the repository:
+Since the dataset may be too large to upload directly, access the curated dataset from the following locations:
+- [NCBI Genomes](https://www.ncbi.nlm.nih.gov/genomes)
+- [Ribo-seq Data](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129355)
 
-bash
-Copy
-git clone https://github.com/yourusername/evORFinder.git
-cd evORFinder
-Create a virtual environment and activate it:
+## Folder Structure
 
-bash
-Copy
-python -m venv venv
-source venv/bin/activate  # On Windows, use venv\Scripts\activate
-Install dependencies:
+```
+evORFinder/
+├── data/
+│   └── raw_data/         # Raw dataset and sequence annotations
+├── code/
+│   ├── evORFinder.py     # Main pipeline script
+│   ├── model.py          # Defines the Sparse MoE model
+│   └── utils.py          # Utility functions for preprocessing and evaluation
+├── results/
+│   ├── figures/          # Generated figures for the report
+│   └── logs/             # Training and evaluation logs
+├── README.md             # This file
+└── requirements.txt      # List of dependencies
+```
 
-nginx
-Copy
-pip install -r requirements.txt
-Run the model:
+## Installation
 
-The project includes Jupyter notebooks with instructions for data preprocessing and model training. Run the notebook files to reproduce the figures and analysis.
+### Prerequisites
 
-Evaluation
-The model was evaluated on multiple metrics:
+- Python 3.7+
+- PyTorch 1.10+ (recommended)
+- Evo (available at [Evo GitHub repository](https://github.com/facebookresearch/Evo))
+- Other dependencies (listed below)
 
-Accuracy
+### Setup Instructions
 
-Precision
+1. **Clone this repository:**
+   ```
+   git clone https://github.com/yourusername/evORFinder.git
+   cd evORFinder
+   ```
 
-Recall
+2. **Create a virtual environment:**
+   ```
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scriptsctivate`
+   ```
 
-F1 score
+3. **Install the required dependencies:**
+   ```
+   pip install -r requirements.txt
+   ```
 
-AUC (Area Under Curve)
+4. **Download the dataset:**
+   - Follow the provided links to download the raw data and place it in the `data/raw_data/` directory.
 
-Benchmarking results show that evORFinder outperforms the existing smORFinder model across all these metrics.
+5. **Run the model:**
+   - To start training the model, use the following command:
+     ```
+     python code/evORFinder.py --train
+     ```
 
-Results
-Model Performance
-evORFinder achieves higher classification accuracy and F1 score compared to smORFinder, demonstrating its superior ability to predict smORFs in both microbial and human pathogen datasets.
+6. **Generate Figures:**
+   - Once training is complete, you can generate figures from the results by running:
+     ```
+     python code/evORFinder.py --generate_figures
+     ```
 
-Figures
-Figure 1: Evo embeddings visualized with t-SNE, showing clear separation of coding and non-coding smORFs.
+## Usage
 
-Figure 2: Hyperparameter tuning results and performance comparison with other models.
+### Training the Model
+To train the model on the dataset, use the command:
+```
+python code/evORFinder.py --train --epochs 100 --batch_size 32
+```
+Adjust the number of epochs and batch size according to your computational resources.
 
-Figure 3: Prediction of bona-fide smORFs in Mycobacterium tuberculosis H37Rv, highlighting the model's generalizability.
+### Evaluation
+To evaluate the trained model on the test set, use the command:
+```
+python code/evORFinder.py --evaluate --checkpoint <path_to_checkpoint>
+```
 
-Future Work
-Extending evORFinder to eukaryotic genomes, focusing on incorporating more complex regulatory signals.
+### Generate Visualizations
+After training, generate the figures for your report using:
+```
+python code/evORFinder.py --generate_figures
+```
 
-Exploring additional scaling and optimization strategies for broader applicability in genome annotation tasks.
+## Results
+
+Figure 2 in this repository demonstrates the following:
+
+1. **(A) Model Performance Comparison:**  
+   evORFinder significantly outperforms all other models tested, including smORFinder and a Sparse MoE model using 4-mer embeddings. Performance metrics include accuracy, precision, recall, F1 score, and AUC.
+
+2. **(B) Accuracy Convergence Over Epochs:**  
+   The training and validation accuracy show that evORFinder continues to improve without signs of overfitting, even after 100 epochs. This suggests potential for further optimization with more computational resources.
+
+## References
+
+- Kute, P. M., Soukarieh, O., Tjeldnes, H., Trégouët, D.-A., & Valen, E. (2022). Small Open Reading Frames, How to Find Them and Determine Their Function. *Frontiers in Genetics, 12*.
+- Nguyen, E. et al. (2024). Sequence modeling and design from molecular to genome scale with Evo. *Science, 386*, eado9336.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
