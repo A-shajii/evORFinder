@@ -52,23 +52,21 @@ evORFinder/
    ```
 
 3. **Install the required dependencies:**
-   ```
-   pip install -r requirements.txt
-   ```
+
 
 4. **Download the dataset:**
    - Follow the provided links to download the raw data and place it in the `data/raw_data/` directory.
 
 5. **Run the model:**
-   - To start training the model, use the following command:
+   - To start training the model, use the following code:
      ```
-     python code/evORFinder.py --train
+     python code/evORFinder.py
      ```
 
 6. **Generate Figures:**
-   - Once training is complete, you can generate figures from the results by running:
+   - Once training is complete, the figures from the results will be genereated with the same code: 
      ```
-     python code/evORFinder.py --generate_figures
+     python code/evORFinder.py 
      ```
 
 ## Usage
