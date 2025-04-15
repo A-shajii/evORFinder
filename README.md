@@ -35,7 +35,6 @@ evORFinder/
 - Python 3.7+
 - PyTorch 1.10+ (recommended)
 - Evo (available at [Evo GitHub repository](https://github.com/facebookresearch/Evo))
-- Other dependencies (listed below)
 
 ### Setup Instructions
 
@@ -52,7 +51,9 @@ evORFinder/
    ```
 
 3. **Install the required dependencies:**
-
+   ```
+  Listed above 
+   ```
 
 4. **Download the dataset:**
    - Follow the provided links to download the raw data and place it in the `data/raw_data/` directory.
