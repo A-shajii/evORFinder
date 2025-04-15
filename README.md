@@ -111,6 +111,3 @@ Figure 2 in this repository demonstrates the following:
 - Kute, P. M., Soukarieh, O., Tjeldnes, H., Trégouët, D.-A., & Valen, E. (2022). Small Open Reading Frames, How to Find Them and Determine Their Function. *Frontiers in Genetics, 12*.
 - Nguyen, E. et al. (2024). Sequence modeling and design from molecular to genome scale with Evo. *Science, 386*, eado9336.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
