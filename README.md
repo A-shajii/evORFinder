@@ -20,16 +20,12 @@ Since the dataset may be too large to upload directly, access the curated datase
 ```
 evORFinder/
 ├── data/
-│   └── raw_data/         # Raw dataset and sequence annotations
+│   └── raw_data/         # Raw dataset and sequence annotations links 
 ├── code/
 │   ├── evORFinder.py     # Main pipeline script
-│   ├── model.py          # Defines the Sparse MoE model
-│   └── utils.py          # Utility functions for preprocessing and evaluation
 ├── results/
 │   ├── figures/          # Generated figures for the report
-│   └── logs/             # Training and evaluation logs
 ├── README.md             # This file
-└── requirements.txt      # List of dependencies
 ```
 
 ## Installation
