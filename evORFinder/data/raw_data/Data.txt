@@ -15,3 +15,8 @@ Citation: National Center for Biotechnology Information (NCBI). (n.d.). nuccore:
 You can download the Mtb genome sequence directly from NCBI:
 
 Mtb H37Rv Genome Data (NCBI): https://www.ncbi.nlm.nih.gov/nuccore/448814763
+
+3. Ribo-seq Data
+The ribosome profiling (Ribo-seq) data was used to validate the active translation of small open reading frames (smORFs). This dataset provides insights into the sequences that are being actively translated within the organism, offering valuable biological evidence for the bona-fide smORFs identified by evORFinder.
+
+
