@@ -12,7 +12,7 @@ This repository contains all the code and data necessary to reproduce the key fi
 The dataset used to train the model contains genomic sequences from bacterial species within the human microbiome, as well as sequences curated from *Mycobacterium tuberculosis* (Mtb) H37Rv for biological validation. Sequences were annotated as either coding (bona-fide smORFs) or non-coding. The data was preprocessed by removing incomplete sequences, filtering ambiguous nucleotides, and standardizing input lengths. A subset of 10,000 entries was used for training, validation, and testing.
 
 Since the dataset may be too large to upload directly, access the curated dataset from the following locations:
-- [Mtb H37Rv Genome Data]([https://www.ncbi.nlm.nih.gov/genomes](https://www.ncbi.nlm.nih.gov/nuccore/448814763))
+- [Mtb H37Rv Genome Data](https://www.ncbi.nlm.nih.gov/nuccore/448814763)
 - [Ribo-seq Data](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129355)
 
 ## Folder Structure
