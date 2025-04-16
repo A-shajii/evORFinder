@@ -47,6 +47,7 @@ evORFinder/
 To run the analysis, you will need to install the required dependencies. These include libraries for data handling, machine learning, and deep learning. You can install them using pip.
 
 Dependencies:
+
 evo: Evo pre-trained embeddings
 
 torch: PyTorch for deep learning
