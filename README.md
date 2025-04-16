@@ -91,12 +91,6 @@ To evaluate the trained model on the test set, use the command:
 python code/evORFinder.py --evaluate --checkpoint <path_to_checkpoint>
 ```
 
-### Generate Visualizations
-After training, generate the figures for your report using:
-```
-python code/evORFinder.py --generate_figures
-```
-
 ## Results
 
 Figure 2 in this repository demonstrates the following:
