@@ -44,6 +44,34 @@ evORFinder/
 - PyTorch 1.10+ (recommended)
 - Evo (available at [Evo GitHub repository](https://github.com/facebookresearch/Evo))
 
+To run the analysis, you will need to install the required dependencies. These include libraries for data handling, machine learning, and deep learning. You can install them using pip.
+
+Dependencies:
+evo: Evo pre-trained embeddings
+
+torch: PyTorch for deep learning
+
+matplotlib: For data visualization
+
+pandas: Data handling
+
+numpy: Numerical operations
+
+scikit-learn: For metrics, cross-validation, and other machine learning tools
+
+scipy: For scientific computations (optimization, stats, etc.)
+
+tqdm: Progress bar for loops
+
+seaborn: For statistical visualizations
+
+biopython: For bioinformatics 
+
+You can install all dependencies with the following command:
+
+pip install evo==0.1.3 torch==1.13.1 matplotlib==3.7.0 pandas==1.5.3 numpy==1.24.0 scikit-learn==1.2.0 scipy==1.10.0 tqdm==4.64.1 seaborn==0.11.2 biopython==1.81
+
+
 ### Setup Instructions
 
 1. **Clone this repository:**
